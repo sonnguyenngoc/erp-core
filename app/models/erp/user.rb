@@ -9,19 +9,12 @@ module Erp
     validates :name, :presence => true
     validates_format_of :email, :presence => true,
 												:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
-												:message => " is invalid (Eg. 'username@globalnaturesoft.com')"
+												:message => " is invalid (Eg. 'email@hcmut.edu.vn')"
     # validates :password, :length => { :minimum => 6, :maximum => 40 }, :confirmation => true
 
     belongs_to :creator, class_name: "Erp::User", optional: true
+    belongs_to :employee, class_name: "Erp::Employee"
     belongs_to :user_group, class_name: "Erp::UserGroup", optional: true
-
-    if Erp::Core.available?("contacts")
-			has_one :contact, class_name: "Erp::Contacts::Contact", foreign_key: 'user_id'
-		end
-
-    if Erp::Core.available?("carts")
-			has_many :wish_lists, dependent: :destroy, class_name: 'Erp::Carts::WishList'
-		end
 
     # Filters
     def self.filter(query, params)
