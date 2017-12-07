@@ -5,6 +5,7 @@ class CreateErpEmployees < ActiveRecord::Migration[5.1]
       t.datetime :birthdate
       t.decimal :salary
       t.string :tax_code
+      t.string :phone
       t.string :address
 
       t.timestamps

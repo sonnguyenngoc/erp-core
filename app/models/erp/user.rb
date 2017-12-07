@@ -163,6 +163,10 @@ module Erp
     def user_group_name
 			user_group.present? ? user_group.name : ''
 		end
+    
+    def employee_code
+			employee.present? ? employee.code : ''
+		end
 
     # new permission from group
     def get_permission(group, engine, controller, permission)

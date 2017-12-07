@@ -3,6 +3,10 @@ module Erp
     validates :code, :uniqueness => true
     validates :code, :presence => true
     
+    def salary=(new_price)
+      self[:salary] = new_price.to_s.gsub(/\,/, '')
+    end
+    
     # Filters
     def self.filter(query, params)
       params = params.to_unsafe_hash

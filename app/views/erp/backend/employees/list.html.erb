@@ -23,7 +23,7 @@
                 <td>
                     <%= erp_datalist_check_row(id: employee.id) %>
                 </td>
-                <% if get_columns(params).include?("name") %>
+                <% if get_columns(params).include?("code") %>
                     <td><%= link_to employee.code, erp.edit_backend_employee_path(employee) %></td>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
@@ -33,7 +33,7 @@
                     <%= erp_datalist_row_actions(
                         [
                             {
-                                text: '<i class="fa fa-edit"></i> '+t('.edit'),
+                                text: '<i class="fa fa-edit"></i> '+t('edit'),
                                 href: erp.edit_backend_employee_path(employee)
                             },                            
                             {

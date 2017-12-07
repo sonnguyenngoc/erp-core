@@ -26,7 +26,6 @@ module Erp
       # POST /employees
       def create
         @employee = Employee.new(employee_params)
-        @employee.creator = current_user
   
         if @employee.save
           if request.xhr?
@@ -36,7 +35,7 @@ module Erp
               value: @employee.id
             }
           else
-            redirect_to erp_products.edit_backend_employee_path(@employee), notice: t('.success')
+            redirect_to erp.edit_backend_employee_path(@employee), notice: t('.success')
           end
         else
           render :new        
@@ -53,7 +52,7 @@ module Erp
               value: @employee.id
             }              
           else
-            redirect_to erp_products.edit_backend_employee_path(@employee), notice: t('.success')
+            redirect_to erp.edit_backend_employee_path(@employee), notice: t('.success')
           end
         else
           render :edit
@@ -92,7 +91,7 @@ module Erp
   
         # Only allow a trusted parameter "white list" through.
         def employee_params
-          params.fetch(:employee, {}).permit(:code, :birthdate, :salary, :tax_code, :address)
+          params.fetch(:employee, {}).permit(:code, :birthdate, :salary, :tax_code, :phone, :address)
         end
     end
   end
