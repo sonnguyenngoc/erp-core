@@ -37,7 +37,7 @@ module Erp
               value: @user_group.id
             }
           else
-            redirect_to erp.edit_backend_user_group_path(@user_group), notice: 'UserGroup was successfully created.'
+            redirect_to erp.edit_backend_user_group_path(@user_group), notice: t('.success')
           end
         else
           render :new

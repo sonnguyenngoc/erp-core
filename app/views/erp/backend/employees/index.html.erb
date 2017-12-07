@@ -1,0 +1,34 @@
+<% content_for :title do %>
+    <%= t('.employees') %>
+<% end %>
+
+<% content_for :page_title do %>
+    <i class="fa fa-users"></i> <%= t('.employees') %>
+<% end %>
+
+<% content_for :page_toolbar do %>
+    <%= erp_component('button/create', {
+        text: t('.create'),
+        href: erp.new_backend_employee_path,
+        class: 'btn-noborder'
+    }) %>
+<% end %>
+
+<%= erp_datalist(
+    url: erp.list_backend_employees_path,
+    keywords: [
+        {
+            text: t('.code'), name: 'code'
+        }
+    ],
+    actions: [
+    ],
+    columns: [
+        {
+            text: t('.code'), name: 'code', value: true, checked: true
+        },                
+        {
+            text: t('created_at'), name: 'created_at', value: true, checked: false
+        }
+    ]
+) %>

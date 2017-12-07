@@ -1,0 +1,54 @@
+<%= form_for([erp, :backend, employee], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-6">
+            <%= erp_form_control("text", {
+                name: 'employee[code]',
+                value: employee.code,
+                label: t('.code'),
+                placeholder: t('.enter_code'),
+                required: true,
+                errors: employee.errors.full_messages_for(:code)
+            }) %>
+            <%= erp_form_control("text", {
+                name: 'employee[tax_code]',
+                value: employee.tax_code,
+                label: t('.tax_code'),
+                placeholder: t('.enter_tax_code')
+            }) %>
+            <%= erp_form_control("number", {
+                name: 'employee[salary]',
+                value: employee.salary,
+                label: t('.salary'),
+                placeholder: t('.enter_salary')
+            }) %>                        
+        </div>
+        <div class="col-md-6">
+            <%= erp_form_control("date", {
+                name: 'employee[birthdate]',
+                value: employee.birthdate,
+                label: t('.birthdate'),
+                placeholder: t('.choose_birthdate')
+            }) %>
+            <%= erp_form_control("text", {
+                name: 'employee[phone]',
+                value: employee.phone,
+                label: t('.tax_phone'),
+                placeholder: t('.enter_phone')
+            }) %>
+            <%= erp_form_control("number", {
+                name: 'employee[address]',
+                value: employee.address,
+                label: t('.address'),
+                placeholder: t('.enter_address')
+            }) %>
+        </div>
+    </div>
+    <hr>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp.backend_employees_path
+    }) %>
+<% end %>

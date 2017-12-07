@@ -2,7 +2,7 @@ module Erp
   class UserGroup < ApplicationRecord
     validates :name, presence: true
     has_many :users
-    belongs_to :user, class_name: 'Erp::User', foreign_key: :manager_id
+    belongs_to :user, class_name: 'Erp::User', foreign_key: :manager_id, optional: true
 
     # Filters
     def self.filter(query, params)

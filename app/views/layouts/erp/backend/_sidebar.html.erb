@@ -26,11 +26,11 @@
                 <li class="" data-erp-hook='sidebar-menu'>
                     
                 </li>
-                <li class="nav-item <%= "active open" if ["erp/backend/users"].include?(params[:controller]) %>">
+                <li class="nav-item <%= "active open" if ["erp/backend/users", "erp/backend/user_groups", "erp/backend/employees"].include?(params[:controller]) %>">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="fa fa-users"></i>
                         <span class="title"><%= t('.user') %></span>
-                        <% if ["erp/backend/users"].include?(params[:controller]) %>
+                        <% if ["erp/backend/users", "erp/backend/user_groups", "erp/backend/employees"].include?(params[:controller]) %>
                             <span class="selected"></span>
                             <span class="arrow open"></span>
                         <% else %>
@@ -41,7 +41,23 @@
                         <li class="nav-item <%= "active" if ["erp/backend/users"].include?(params[:controller]) %>">
                             <a href="<%= erp.backend_users_path %>" class="nav-link ">
                                 <span class="title"><%= t('.users') %></span>
-                                <% if ["erp/backend/contacts"].include?(params[:controller]) %>
+                                <% if ["erp/backend/users"].include?(params[:controller]) %>
+                                <span class="selected"></span>
+                                <% end %>
+                            </a>
+                        </li>
+                        <li class="nav-item <%= "active" if ["erp/backend/employees"].include?(params[:controller]) %>">
+                            <a href="<%= erp.backend_employees_path %>" class="nav-link ">
+                                <span class="title"><%= t('.employees') %></span>
+                                <% if ["erp/backend/employees"].include?(params[:controller]) %>
+                                <span class="selected"></span>
+                                <% end %>
+                            </a>
+                        </li>
+                        <li class="nav-item <%= "active" if ["erp/backend/user_groups"].include?(params[:controller]) %>">
+                            <a href="<%= erp.backend_user_groups_path %>" class="nav-link ">
+                                <span class="title"><%= t('.user_groups') %></span>
+                                <% if ["erp/backend/user_groups"].include?(params[:controller]) %>
                                 <span class="selected"></span>
                                 <% end %>
                             </a>

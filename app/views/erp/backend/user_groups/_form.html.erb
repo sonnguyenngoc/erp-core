@@ -9,8 +9,6 @@
                 required: true,
                 errors: user_group.errors.full_messages_for(:name)
             }) %>
-        </div>
-        <div class="col-md-6">
             <%= erp_form_control("textarea", {
                 name: 'user_group[description]',
                 value: user_group.description,

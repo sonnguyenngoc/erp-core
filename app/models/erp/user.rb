@@ -13,7 +13,7 @@ module Erp
     # validates :password, :length => { :minimum => 6, :maximum => 40 }, :confirmation => true
 
     belongs_to :creator, class_name: "Erp::User", optional: true
-    belongs_to :employee, class_name: "Erp::Employee"
+    belongs_to :employee, class_name: "Erp::Employee", optional: true
     belongs_to :user_group, class_name: "Erp::UserGroup", optional: true
 
     # Filters

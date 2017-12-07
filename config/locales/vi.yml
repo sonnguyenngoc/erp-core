@@ -36,8 +36,10 @@ vi:
         header_search_box:
           search: "Tìm kiếm..."
         sidebar:
-          user: "Quản lý tài khoản"
-          users: "Tài khoản"
+          user: "Quản lý nhân viên"
+          users: "Danh sách nhân viên"
+          employees: "Thông tin nhân viên"
+          user_groups: "Danh sách phòng ban"
         javascript_includes:
           no_record_found: "Không tìm thấy kết quả."
   erp:
@@ -47,50 +49,51 @@ vi:
           dashboard: "Bảng điều khiển"
       users:
         create:
-          success: "Thêm tài khoản thành công."
+          success: "Thêm thông tin nhân viên thành công."
         update:
-          success: "Cập nhật tài khoản thành công."
+          success: "Cập nhật thông tin nhân viên thành công."
         destroy:
-          success: "Xóa tài khoản thành công."
+          success: "Xóa thông tin nhân viên thành công."
         delete_all:
-          success: "Xóa tài khoản được chọn thành công."
+          success: "Xóa thông tin nhân viên được chọn thành công."
         activate_all:
-          success: "Kích hoạt tài khoản được chọn thành công."
+          success: "Kích hoạt thông tin nhân viên được chọn thành công."
         deactivate_all:
-          success: "Khóa tài khoản được chọn thành công."
+          success: "Khóa thông tin nhân viên được chọn thành công."
         activate:
-          success: "Kích hoạt tài khoản thành công."
+          success: "Kích hoạt thông tin nhân viên thành công."
         deactivate:
-          success: "Khóa tài khoản thành công."
+          success: "Khóa thông tin nhân viên thành công."
         index:
-          create: "Thêm tài khoản"
-          user: "Tài khoản"
-          name: "Tên người dùng"
+          create: "Thêm thông tin nhân viên"
+          users: "Danh sách nhân viên"
+          name: "Tên nhân viên"
           email: "Địa chỉ email"
-          activate: "Kích hoạt tài khoản"
-          deactivate: "Khóa tài khoản"
-          delete: "Xóa tài khoản"
+          activate: "Kích hoạt"
+          deactivate: "Khóa"
+          delete: "Xóa thông tin"
           delete_confirm: "Bạn chắc chắn muốn xóa?"
         list:
-          name: "Tên người dùng"
+          name: "Tên nhân viên"
           email: "Địa chỉ email"
-          activate: "Kích hoạt tài khoản"
+          activate: "Kích hoạt"
           deactivate: "Khóa tài khoản"
           delete: "Xóa tài khoản"
           active: "Kích hoạt"
           inactive: "Chưa kích hoạt"
           delete_confirm: "Bạn chắc chắn muốn xóa?"
+          no_matching_records_found: "Danh sách nhân viên hiện tại đang trống."
         new:
-          user: "Tài khoản"
+          users: "Danh sách nhân viên"
           create: "Thêm tài khoản"
         edit:
-          user: "Tài khoản"
-          create: "Thêm tài khoản"
-          edit: "Cập nhật"
+          users: "Danh sách nhân viên"
+          create: "Thêm thông tin nhân viên"
+          edit: "Cập nhật thông tin"
         form:
-          name: "Tên người dùng"
+          name: "Tên nhân viên"
           email: "Địa chỉ email"
-          enter_user_name: "Nhập tên người dùng"
+          enter_user_name: "Nhập tên nhân viên"
           enter_email: "Nhập địa chỉ email"
           password: "Mật khẩu"
           password_confirm: "Xác nhận mật khẩu"
@@ -98,54 +101,80 @@ vi:
           enter_password_confirm: "Nhập lại mật khẩu..."
           timezone: "Múi giờ"
           choose_timezone: "Chọn múi giờ..."
-          user_group: "Nhóm người dùng"
-          choose_user_group: "Chọn nhóm người dùng"
-          create: "Thêm mới"
-          edit: "Chỉnh sửa"
+          user_group: "Phòng ban"
+          choose_user_group: "Chọn phòng ban cho nhân viên"
+          create: "Thêm phòng ban mới"
+          edit: "Cập nhật phòng ban"
       user_groups:
         create:
-          success: "Thêm nhóm thành công."
+          success: "Thêm phòng ban thành công."
         update:
-          success: "Cập nhật nhóm thành công."
-        destroy:
-          success: "Xóa nhóm thành công."
-        delete_all:
-          success: "Xóa nhóm được chọn thành công."
-        activate_all:
-          success: "Kích hoạt nhóm được chọn thành công."
-        deactivate_all:
-          success: "Khóa nhóm được chọn thành công."
-        activate:
-          success: "Kích hoạt nhóm thành công."
-        deactivate:
-          success: "Khóa tài khoản thành công."
+          success: "Cập nhật phòng ban thành công."        
         index:
-          create: "Thêm nhóm"
-          user_group: "Nhóm người dùng"
-          name: "Tên nhóm"
-          description: "Mô tả"
+          user_groups: "Danh sách phòng ban"
+          create: "Thêm phòng ban"          
+          name: "Tên phòng ban"
+          description: "Mô tả phòng ban"
         list:
-          name: "Tên người dùng"
-          email: "Địa chỉ email"
-          activate: "Kích hoạt tài khoản"
-          deactivate: "Khóa tài khoản"
-          delete: "Xóa tài khoản"
-          active: "Kích hoạt"
-          inactive: "Chưa kích hoạt"
-          delete_confirm: "Bạn chắc chắn muốn xóa?"
+          name: "Tên phòng ban"
+          description: "Mô tả phòng ban"
+          no_matching_records_found: "Danh sách phòng ban hiện tại đang trống."
         new:
-          user_group: "Nhóm thành viên"
-          create: "Thêm nhóm"
+          user_groups: "Danh sách phòng ban"
+          create: "Thêm phòng ban"
         edit:
-          user_group: "Nhóm thành viên"
-          create: "Thêm nhóm"
-          edit: "Cập nhật"
+          user_groups: "Danh sách phòng ban"
+          create: "Thêm phòng ban"
+          edit: "Cập nhật thông tin"
         form:
-          name: 'Tên nhóm'
-          user_group: "Nhóm người dùng"
-          enter_user_group_name: 'Nhập tên nhóm'
+          name: 'Tên phòng ban'
+          enter_user_group_name: 'Nhập tên phòng ban'
           description: 'Mô tả'
           enter_description: 'Nhập mô tả'
+      employees:
+        create:
+          success: "Thêm thông tin nhân viên thành công."
+        update:
+          success: "Cập nhật thông tin nhân viên thành công."
+        destroy:
+          success: "Xóa thông tin nhân viên thành công."
+        delete_all:
+          success: "Xóa thông tin nhân viên được chọn thành công."
+        activate_all:
+          success: "Kích hoạt thông tin nhân viên được chọn thành công."
+        deactivate_all:
+          success: "Khóa thông tin nhân viên được chọn thành công."
+        activate:
+          success: "Kích hoạt thông tin nhân viên thành công."
+        deactivate:
+          success: "Khóa thông tin nhân viên thành công."
+        index:
+          employees: "Danh sách thông tin nhân viên"
+          create: "Thêm thông tin nhân viên"
+          code: "Mã nhân viên"
+        list:
+          code: "Mã nhân viên"
+          delete: "Xóa thông tin"
+          delete_confirm: "Bạn chắc chắn muốn xóa?"
+          no_matching_records_found: "Danh sách thông tin nhân viên hiện tại đang trống."
+        new:
+          employees: "Danh sách thông tin nhân viên"
+          create: "Thêm thông tin nhân viên"
+        edit:
+          employees: "Danh sách thông tin nhân viên"
+          create: "Thêm thông tin nhân viên"
+          edit: "Cập nhật thông tin"
+        form:
+          code: "Mã nhân viên"
+          enter_code: "Nhập mã nhân viên"
+          tax_code: "Mã số thuế"
+          enter_tax_code: "Nhập mã số thuế"
+          salary: "Lương"
+          enter_salary: "Nhập lương của nhân viên"
+          birthdate: "Ngày sinh"
+          choose_birthdate: "Chọn ngày sinh"
+          address: "Địa chỉ"
+          enter_address: "Nhập địa chỉ"
   core:
     search_keyword_for: Tìm theo <span class="bold">%{name}</span> với từ khóa <span class="keyword bold" text="%{name}" name="%{keyword}"></span>
     search: "Tìm theo"
