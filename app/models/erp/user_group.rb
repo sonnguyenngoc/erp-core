@@ -77,27 +77,9 @@ module Erp
     def self.permissions_array
       arr = {
         # Inventory
-        inventory: {
-          order_stock_checks: {
-            schecks: {
-              check: {
-                value: 'yes',
-                options: [
-                  {value: 'yes', text: 'Có'},
-                  {value: 'no', text: 'Không'},
-                ],
-              },
-              approve_order: {
-                value: 'yes',
-                options: [
-                  {value: 'yes', text: 'Có'},
-                  {value: 'no', text: 'Không'},
-                ],
-              },
-            }
-          },
-          qdeliveries: {
-            deliveries: {
+        user_management: {
+          user: {
+            users: {
               index: {
                 value: 'yes',
                 options: [
@@ -105,28 +87,28 @@ module Erp
                   {value: 'no', text: 'Không'},
                 ],
               },
-              create: {
+              new: {
                 value: 'yes',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              update: {
+              edit: {
                 value: 'yes',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              sales_orders: {
+              delete: {
                 value: 'yes',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              purchase_orders: {
+              view_salary: {
                 value: 'yes',
                 options: [
                   {value: 'yes', text: 'Có'},
@@ -134,37 +116,59 @@ module Erp
                 ],
               },
             }
-          },          
-        },        
-        system: {
-          system: {
-            system: {
-              settings: {
-                value: 'no',
-                options: [
-                  {value: 'yes', text: 'Có'},
-                  {value: 'no', text: 'Không'},
-                ],
-              },
-              backup: {
-                value: 'no',
-                options: [
-                  {value: 'yes', text: 'Có'},
-                  {value: 'no', text: 'Không'},
-                ],
-              },
-              restore: {
-                value: 'no',
-                options: [
-                  {value: 'yes', text: 'Có'},
-                  {value: 'no', text: 'Không'},
-                ],
-              },
-            },
           },
-        },
+          department: {
+            departments: {
+              index: {
+                value: 'roommate',
+                options: [
+                  {value: 'roommate', text: 'Cùng phòng'},
+                  {value: 'all', text: 'Tất cả'},
+                ],
+              },
+              edit: {
+                value: 'roommate',
+                options: [
+                  {value: 'roommate', text: 'Cùng phòng'},
+                  {value: 'all', text: 'Tất cả'},
+                ],
+              },
+            }
+          },
+          user_group: {
+            user_groups: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              new: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            }
+          },
+        },                
       }
-
       arr
     end
   end

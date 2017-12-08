@@ -30,6 +30,29 @@ vi:
   date_format_js: "yyyy-mm-dd"
   date_format: "%Y-%m-%d"
   datetime_format: "%Y-%m-%d, %H:%M"
+  permission:
+    group_user_management: "Phân Quyền Nhân Viên"
+    user_management:
+      user:
+        controller_users: "Quyền cho nhân viên"
+        users:
+          index: "Xem danh sách"
+          new: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+          view_salary: "Xem lương"
+      department:
+        controller_departments: "Quyền cho phòng ban"
+        departments:
+          index: "Xem danh sách"
+          edit: "Cập nhật"
+      user_group:
+        controller_user_groups: "Quyền cho danh sách phân quyền"
+        user_groups:
+          index: "Xem danh sách"
+          new: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
   layouts:
     erp:
       backend:
