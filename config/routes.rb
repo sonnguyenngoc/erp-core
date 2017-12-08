@@ -1,5 +1,6 @@
 Erp::Core::Engine.routes.draw do
 	scope "(:locale)", locale: /en|vi/ do
+		root to: "backend/dashboard#index"
 		scope(:path_names => { :new => "tao-moi", :edit => "cap-nhat" }) do
 			devise_for :users,
 				class_name: "Erp::User",
@@ -13,8 +14,7 @@ Erp::Core::Engine.routes.draw do
 	
 			get '/auth/:provider/callback', to: 'frontend/users#omniauth_login'
 	
-			namespace :backend do
-				get '/' => 'dashboard#index'
+			namespace :backend do				
 				resources :users, :path => "quan-ly-nhan-vien/danh-sach-nhan-vien" do
 					collection do
 						post 'list'

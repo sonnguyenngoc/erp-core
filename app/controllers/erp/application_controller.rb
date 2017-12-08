@@ -21,7 +21,7 @@ module Erp
 			if session[:current_view] == 'frontend'
 				url_for('/')
 			else
-				erp.backend_path
+				erp.root_path
 			end
 		end
   end

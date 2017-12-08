@@ -42,7 +42,7 @@
                     <%= link_to '<i class="icon-key"></i>'.html_safe + t('logout'),
                         erp.destroy_user_session_path,
                         method: :delete,
-                        redirect_to: erp.backend_path,
+                        redirect_to: erp.root_path,
                         class: 'link-method'
                     %>
                 </li>
