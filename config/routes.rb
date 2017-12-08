@@ -26,7 +26,7 @@ Erp::Core::Engine.routes.draw do
 						put 'deactivate_all'
 					end
 				end
-				resources :user_groups, :path => "quan-ly-nhan-vien/danh-sach-phong-ban" do
+				resources :user_groups, :path => "quan-ly-nhan-vien/danh-sach-phan-quyen" do
 					collection do
 						post 'list'
 						get 'dataselect'

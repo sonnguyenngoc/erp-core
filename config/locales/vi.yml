@@ -39,7 +39,7 @@ vi:
           user: "Quản lý nhân viên"
           users: "Danh sách nhân viên"
           employees: "Thông tin nhân viên"
-          user_groups: "Danh sách phòng ban"
+          user_groups: "Danh sách phân quyền"
         javascript_includes:
           no_record_found: "Không tìm thấy kết quả."
   erp:
@@ -111,28 +111,28 @@ vi:
           edit_employee: "Cập nhật thông tin nhân viên"
       user_groups:
         create:
-          success: "Thêm phòng ban thành công."
+          success: "Thêm phân quyền thành công."
         update:
-          success: "Cập nhật phòng ban thành công."        
+          success: "Cập nhật phân quyền thành công."        
         index:
-          user_groups: "Danh sách phòng ban"
-          create: "Thêm phòng ban"          
-          name: "Tên phòng ban"
-          description: "Mô tả phòng ban"
+          user_groups: "Danh sách phân quyền"
+          create: "Thêm phân quyền"          
+          name: "Tên phân quyền"
+          description: "Mô tả phân quyền"
         list:
-          name: "Tên phòng ban"
-          description: "Mô tả phòng ban"
-          no_matching_records_found: "Danh sách phòng ban hiện tại đang trống."
+          name: "Tên phân quyền"
+          description: "Mô tả phân quyền"
+          no_matching_records_found: "Danh sách phân quyền hiện tại đang trống."
         new:
-          user_groups: "Danh sách phòng ban"
-          create: "Thêm phòng ban"
+          user_groups: "Danh sách phân quyền"
+          create: "Thêm phân quyền"
         edit:
-          user_groups: "Danh sách phòng ban"
-          create: "Thêm phòng ban"
+          user_groups: "Danh sách phân quyền"
+          create: "Thêm phân quyền"
           edit: "Cập nhật thông tin"
         form:
-          name: 'Tên phòng ban'
-          enter_user_group_name: 'Nhập tên phòng ban'
+          name: 'Tên phân quyền'
+          enter_user_group_name: 'Nhập tên phân quyền'
           description: 'Mô tả'
           enter_description: 'Nhập mô tả'
       employees:

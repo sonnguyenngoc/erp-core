@@ -2,7 +2,7 @@ module Erp
   class UserGroup < ApplicationRecord
     validates :name, presence: true
     has_many :users
-    belongs_to :user, class_name: 'Erp::User', foreign_key: :manager_id, optional: true
+    #belongs_to :user, class_name: 'Erp::User', foreign_key: :manager_id, optional: true
 
     # Filters
     def self.filter(query, params)
@@ -46,7 +46,9 @@ module Erp
 
     # update permissions
     def update_permissions(permissions_params)
-      self.update_column(:permissions, permissions_params.to_json)
+      arr = permissions_params.to_json
+      self.permissions = arr
+      self.save
     end
 
     # get permissions

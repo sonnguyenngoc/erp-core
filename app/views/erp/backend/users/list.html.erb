@@ -2,22 +2,14 @@
     <thead>
         <tr>
             <% if get_columns(params).include?("name") %>
-                <th width='20%' class="text-left">
-                    <%= t('.name') %>
-                </th>
+                <th width='20%' class="text-left"><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("email") %>
-                <th>
-                    <%= t('.email') %>
-                </th>
+                <th><%= t('.email') %></th>
             <% end %>
-            <th>
-                Nhóm
-            </th>
+            <th><%= t('.group') %></th>
             <% if get_columns(params).include?("created_at") %>
-                <th>
-                    <%= t('created_at') %>
-                </th>
+                <th><%= t('created_at') %></th>
             <% end %>
             <th width="7%"><%= t('actions') %></th>
         </tr>

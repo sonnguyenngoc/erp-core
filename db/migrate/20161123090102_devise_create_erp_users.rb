@@ -22,7 +22,16 @@ class DeviseCreateErpUsers < ActiveRecord::Migration[5.0]
       t.string   :uid
       
       #@todo online store
-      t.boolean  :backend_access, default: false
+      t.boolean  :backend_access, default: false      
+      t.text :permissions
+      
+      t.string :name
+      t.string :avatar
+      t.string :timezone
+      t.boolean :active, default: false
+      t.references :employee, index: true, references: :erp_employees
+      t.references :creator, index: true, references: :erp_users
+      t.references :user_group, index: true, references: :erp_user_groups
 
       ## Confirmable
       # t.string   :confirmation_token
