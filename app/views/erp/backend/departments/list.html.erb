@@ -10,6 +10,9 @@
             <% if get_columns(params).include?("manager") %>
                 <th><%= t('.manager') %></th>
             <% end %>
+            <% if get_columns(params).include?("employee_number") %>
+                <th class="text-center"><%= t('.employee_number') %></th>
+            <% end %>
             <% if get_columns(params).include?("created_at") %>
                 <th><%= t('created_at') %></th>
             <% end %>
@@ -27,6 +30,9 @@
                 <% end %>
                 <% if get_columns(params).include?("manager") %>
                     <td><%= department.manager_name %></td>
+                <% end %>
+                <% if get_columns(params).include?("employee_number") %>
+                    <td class="text-center"><%= department.get_employee_number %></td>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
                     <td class="center"><%= department.created_at.strftime("%d/%m/%Y") %></td>

@@ -196,9 +196,11 @@ vi:
           create: "Thêm phòng ban"
           name: "Tên phòng ban"
           manager: "Trưởng phòng"
+          employee_number: "Số nhân viên"
         list:
           name: "Tên phòng ban"
           manager: "Trưởng phòng"
+          employee_number: "Số nhân viên"
           delete: "Xóa phòng ban"
           delete_confirm: "Bạn chắc chắn muốn xóa?"
           no_matching_records_found: "Danh sách phòng ban hiện tại đang trống."

@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_title do %>
-    <i class="fa fa-users"></i> <%= t('.departments') %>
+    <i class="fa fa-sitemap"></i> <%= t('.departments') %>
 <% end %>
 
 <% content_for :page_toolbar do %>
@@ -29,6 +29,9 @@
         },
         {
             text: t('.manager'), name: 'manager', value: true, checked: true
+        },
+        {
+            text: t('.employee_number'), name: 'employee_number', value: true, checked: true
         },
         {
             text: t('created_at'), name: 'created_at', value: true, checked: false

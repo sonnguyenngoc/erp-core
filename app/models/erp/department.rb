@@ -68,5 +68,9 @@ module Erp
 			manager.present? ? '#' +manager.employee_code + ' - ' + manager.name : ''
 		end
     
+    def get_employee_number
+      users.count
+    end
+    
   end
 end
