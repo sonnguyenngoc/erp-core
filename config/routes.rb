@@ -18,6 +18,7 @@ Erp::Core::Engine.routes.draw do
 				resources :users, :path => "quan-ly-nhan-vien/danh-sach-nhan-vien" do
 					collection do
 						post 'list'
+						get 'employees'
 						get 'dataselect'
 						delete 'delete_all'
 						put 'activate'
@@ -30,6 +31,12 @@ Erp::Core::Engine.routes.draw do
 					collection do
 						post 'list'
 						get 'dataselect'
+					end
+				end
+				resources :departments, :path => "quan-ly-nhan-vien/danh-sach-phong-ban" do
+					collection do
+						get 'dataselect'
+						post 'list'
 					end
 				end
 				resources :employees, :path => "quan-ly-nhan-vien/thong-tin-nhan-vien" do

@@ -38,6 +38,7 @@ vi:
         sidebar:
           user: "Quản lý nhân viên"
           users: "Danh sách nhân viên"
+          departments: "Danh sách phòng ban"
           employees: "Thông tin nhân viên"
           user_groups: "Danh sách phân quyền"
         javascript_includes:
@@ -67,20 +68,22 @@ vi:
         index:
           create: "Thêm thông tin nhân viên"
           users: "Danh sách nhân viên"
+          code: "Mã nhân viên"
           name: "Tên nhân viên"
           email: "Địa chỉ email"
-          activate: "Kích hoạt"
-          deactivate: "Khóa"
+          user_group: "Nhóm quyền"
+          department: "Phòng ban"          
           delete: "Xóa thông tin"
           delete_confirm: "Bạn chắc chắn muốn xóa?"
         list:
+          code: "Mã nhân viên"
           name: "Tên nhân viên"
           email: "Địa chỉ email"
+          user_group: "Nhóm quyền"
+          department: "Phòng ban"
           activate: "Kích hoạt"
           deactivate: "Khóa tài khoản"
-          delete: "Xóa tài khoản"
-          active: "Kích hoạt"
-          inactive: "Chưa kích hoạt"
+          delete: "Xóa tài khoản"          
           delete_confirm: "Bạn chắc chắn muốn xóa?"
           no_matching_records_found: "Danh sách nhân viên hiện tại đang trống."
         new:
@@ -90,6 +93,12 @@ vi:
           users: "Danh sách nhân viên"
           create: "Thêm thông tin nhân viên"
           edit: "Cập nhật thông tin"
+        employees:
+          phone: "Số điện thoại"
+          tax_code: "MST"
+          salary: "Lương"
+          birthdate: "Ngày sinh"
+          address: "Địa chỉ"
         form:
           name: "Tên nhân viên"
           email: "Địa chỉ email"
@@ -101,10 +110,14 @@ vi:
           enter_password_confirm: "Nhập lại mật khẩu..."
           timezone: "Múi giờ"
           choose_timezone: "Chọn múi giờ..."
-          user_group: "Phòng ban"
-          choose_user_group: "Chọn phòng ban cho nhân viên"
-          create: "Thêm phòng ban mới"
-          edit: "Cập nhật phòng ban"
+          department: "Phòng ban"
+          choose_department: "Chọn phòng ban"
+          create_department: "Thêm phòng ban"
+          edit_department: "Cập nhật phòng ban"
+          user_group: "Cấp quyền"
+          choose_user_group: "Chọn quyền cho nhân viên"
+          create_user_group: "Thêm nhóm quyền mới"
+          edit_user_group: "Cập nhật nhóm quyền"
           employee: "Thông tin nhân viên"
           choose_employee: "Chọn mã nhân viên"
           create_employee: "Thêm thông tin nhân viên"
@@ -142,16 +155,6 @@ vi:
           success: "Cập nhật thông tin nhân viên thành công."
         destroy:
           success: "Xóa thông tin nhân viên thành công."
-        delete_all:
-          success: "Xóa thông tin nhân viên được chọn thành công."
-        activate_all:
-          success: "Kích hoạt thông tin nhân viên được chọn thành công."
-        deactivate_all:
-          success: "Khóa thông tin nhân viên được chọn thành công."
-        activate:
-          success: "Kích hoạt thông tin nhân viên thành công."
-        deactivate:
-          success: "Khóa thông tin nhân viên thành công."
         index:
           employees: "Danh sách thông tin nhân viên"
           create: "Thêm thông tin nhân viên"
@@ -181,6 +184,40 @@ vi:
           enter_phone: "Nhập số điện thoại"
           address: "Địa chỉ"
           enter_address: "Nhập địa chỉ"
+      departments:
+        create:
+          success: "Thêm thông tin phòng ban thành công."
+        update:
+          success: "Cập nhật thông tin phòng ban thành công."
+        destroy:
+          success: "Xóa thông tin phòng ban thành công."       
+        index:
+          departments: "Danh sách phòng ban"
+          create: "Thêm phòng ban"
+          name: "Tên phòng ban"
+          manager: "Trưởng phòng"
+        list:
+          name: "Tên phòng ban"
+          manager: "Trưởng phòng"
+          delete: "Xóa phòng ban"
+          delete_confirm: "Bạn chắc chắn muốn xóa?"
+          no_matching_records_found: "Danh sách phòng ban hiện tại đang trống."
+        new:
+          departments: "Danh sách phòng ban"
+          create: "Thêm phòng ban"
+        edit:
+          departments: "Danh sách phòng ban"
+          create: "Thêm phòng ban"
+          edit: "Cập nhật phòng ban"
+        form:
+          name: "Tên phòng ban"
+          enter_name: "Nhập tên phòng ban"
+          description: "Mô tả"
+          enter_description: "Nhập mô tả"
+          manager: "Trưởng phòng"
+          choose_manager: "Chọn trưởng phòng"
+          create_manager: "Thêm mới trưởng phòng"
+          edit_manager: "Cập nhật thông tin trưởng phòng"
   core:
     search_keyword_for: Tìm theo <span class="bold">%{name}</span> với từ khóa <span class="keyword bold" text="%{name}" name="%{keyword}"></span>
     search: "Tìm theo"

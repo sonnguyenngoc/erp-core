@@ -1,11 +1,9 @@
 module Erp
-  class Employee < ApplicationRecord
-    validates :code, :uniqueness => true
-    validates :code, :presence => true
-    
-    def salary=(new_price)
-      self[:salary] = new_price.to_s.gsub(/\,/, '')
-    end
+  class Department < ApplicationRecord
+    validates :name, :uniqueness => true
+    validates :name, :presence => true
+    belongs_to :manager, class_name: 'Erp::User', foreign_key: :manager_id, optional: true
+    has_many :users
     
     # Filters
     def self.filter(query, params)
@@ -51,7 +49,7 @@ module Erp
         query = query.order(order)
       end
 
-      return query
+      return query.order("created_at desc")
     end
 
     # data for dataselect ajax
@@ -60,11 +58,15 @@ module Erp
 
       if keyword.present?
         keyword = keyword.strip.downcase
-        query = query.where('LOWER(code) LIKE ?', "%#{keyword}%")
+        query = query.where('LOWER(name) LIKE ?', "%#{keyword}%")
       end
 
-      query = query.limit(8).map{|employee| {value: employee.id, text: employee.code} }
+      query = query.limit(8).map{|department| {value: department.id, text: department.name} }
     end
+    
+    def manager_name
+			manager.present? ? '#' +manager.employee_code + ' - ' + manager.name : ''
+		end
     
   end
 end

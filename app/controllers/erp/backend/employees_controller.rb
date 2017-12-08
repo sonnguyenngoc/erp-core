@@ -64,7 +64,7 @@ module Erp
         @employee.destroy
 
         respond_to do |format|
-          format.html { redirect_to erp_products.backend_employees_path, notice: t('.success') }
+          format.html { redirect_to erp.backend_employees_path, notice: t('.success') }
           format.json {
             render json: {
               'message': t('.success'),

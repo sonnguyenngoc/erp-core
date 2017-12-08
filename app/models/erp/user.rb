@@ -6,15 +6,16 @@ module Erp
            :recoverable, :rememberable, :trackable, :validatable, :confirmable
 		belongs_to :user_group, optional: true
     mount_uploader :avatar, Erp::AvatarUploader
-    validates :name, :presence => true
+    validates :name, :department_id, :user_group_id, :employee_id,:presence => true
     validates_format_of :email, :presence => true,
 												:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
 												:message => " is invalid (Eg. 'email@hcmut.edu.vn')"
     # validates :password, :length => { :minimum => 6, :maximum => 40 }, :confirmation => true
 
     belongs_to :creator, class_name: "Erp::User", optional: true
-    belongs_to :employee, class_name: "Erp::Employee", optional: true
-    belongs_to :user_group, class_name: "Erp::UserGroup", optional: true
+    belongs_to :employee, class_name: "Erp::Employee"
+    belongs_to :user_group, class_name: "Erp::UserGroup"
+    belongs_to :department, class_name: "Erp::Department", foreign_key: :department_id
 
     # Filters
     def self.filter(query, params)
@@ -167,6 +168,31 @@ module Erp
     def employee_code
 			employee.present? ? employee.code : ''
 		end
+    
+    def department_name
+			department.present? ? department.name : ''
+		end
+    
+    def employee_code
+			employee.present? ? employee.code : ''
+		end
+    
+    def employee_tax_code
+      employee.present? ? employee.tax_code : ''
+    end
+    
+    def employee_salary
+      employee.present? ? employee.salary : ''
+    end
+    def employee_birthdate
+      employee.present? ? employee.birthdate.strftime("%d-%m-%Y") : ''
+    end
+    def employee_phone
+      employee.present? ? employee.phone : ''
+    end
+    def employee_address
+      employee.present? ? employee.address : ''
+    end
 
     # new permission from group
     def get_permission(group, engine, controller, permission)

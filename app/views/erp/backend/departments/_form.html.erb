@@ -1,0 +1,50 @@
+<%= form_for([erp, :backend, department], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-6">
+            <%= erp_form_control("text", {
+                name: 'department[name]',
+                value: department.name,
+                label: t('.name'),
+                placeholder: t('.enter_name'),
+                required: true,
+                errors: department.errors.full_messages_for(:name)
+            }) %>
+            <%= erp_form_control("dataselect", {
+                name: 'department[manager_id]',
+                value: department.manager_id,
+                text: department.manager_name,
+                placeholder: t('.choose_manager'),
+                label: t('.manager'),
+                url: erp.dataselect_backend_users_path(format: 'json'),
+                create: {
+                    url: erp.new_backend_user_path,
+                    title: t('.create_manager'),
+                    modal_size: 'md',
+                    container_selector: '.new_user',
+                    input_selector: 'input[name="user[name]"]'
+                },
+                edit: {
+                    url: erp.edit_backend_user_path(id: ':value'),
+                    title: t('.edit_manager'),
+                    modal_size: 'md',
+                    container_selector: '.edit_user',
+                }
+            }) %>
+            <%= erp_form_control("textarea", {
+                name: 'department[description]',
+                value: department.description,
+                label: t('.description'),
+                placeholder: t('.enter_description')
+            }) %>                       
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+    <hr>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp.backend_departments_path
+    }) %>
+<% end %>

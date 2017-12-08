@@ -1,0 +1,52 @@
+<div class="col-md-12">
+
+        <div class="portlet-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped flip-content">
+                    <thead class="flip-content">
+                        <tr>
+                            <th width="15%" class="text-left"><%= t('.phone') %></th>
+                            <th class="text-left"><%= t('.tax_code') %></th>
+                            <th class="text-left"><%= t('.salary') %></th>
+                            <th class="text-left"><%= t('.birthdate') %></th>
+                            <th class="text-left"><%= t('.address') %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <% if @user.employee.phone? %>
+                                <td width="15%" class="text-left"><strong><%= @user.employee_phone %></strong></td>
+                            <% else %>
+                                <td width="15%" class="text-left">Chưa có thông tin</td>
+                            <% end %>
+                                                        
+                            <% if @user.employee.tax_code? %>
+                                <td class="text-left"><%= @user.employee_tax_code %> VNĐ</td>
+                            <% else %>
+                                <td class="text-left">Chưa có thông tin</td>
+                            <% end %>
+                            
+                            <% if @user.employee.salary? %>
+                                <td class="text-left"><%= format_number(@user.employee_salary) %> VNĐ</td>
+                            <% else %>
+                                <td class="text-left">Chưa có thông tin</td>
+                            <% end %>
+                            
+                            <% if @user.employee.birthdate.present? %>
+                                <td class="text-left"><%= @user.employee_birthdate %></td>
+                            <% else %>
+                                <td class="text-left">Chưa có thông tin</td>
+                            <% end %>
+                            
+                            <% if @user.employee.address.present? %>
+                                <td class="text-left"><%= @user.employee_address %></td>
+                            <% else %>
+                                <td class="text-left">Chưa có thông tin</td>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</div>

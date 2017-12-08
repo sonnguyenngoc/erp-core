@@ -1,11 +1,15 @@
 module Erp
   module Backend
     class UsersController < Erp::Backend::BackendController
-      before_action :set_user, only: [:deactivate, :activate, :edit, :update, :destroy]
+      before_action :set_user, only: [:deactivate, :activate, :edit, :update, :destroy, :employees]
       before_action :set_users, only: [:deactivate_all, :activate_all, :delete_all]
 
       # GET /users
       def index
+      end
+      
+      def employees
+        render layout: nil
       end
 
       # POST /users/list
@@ -173,7 +177,7 @@ module Erp
 
         # Only allow a trusted parameter "white list" through.
         def user_params
-          params.fetch(:user, {}).permit(:avatar, :name, :email, :password, :timezone, :user_group_id, :employee_id)
+          params.fetch(:user, {}).permit(:avatar, :name, :email, :password, :timezone, :department_id, :user_group_id, :employee_id)
         end
     end
   end
