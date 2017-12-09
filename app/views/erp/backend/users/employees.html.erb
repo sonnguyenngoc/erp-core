@@ -7,7 +7,9 @@
                         <tr>
                             <th width="15%" class="text-left"><%= t('.phone') %></th>
                             <th class="text-left"><%= t('.tax_code') %></th>
-                            <th class="text-left"><%= t('.salary') %></th>
+                            <% if can? :view_salary, nil %>
+                                <th class="text-left"><%= t('.salary') %></th>
+                            <% end %>
                             <th class="text-left"><%= t('.birthdate') %></th>
                             <th class="text-left"><%= t('.address') %></th>
                         </tr>
@@ -21,15 +23,17 @@
                             <% end %>
                                                         
                             <% if @user.employee.tax_code? %>
-                                <td class="text-left"><%= @user.employee_tax_code %> VNĐ</td>
+                                <td class="text-left"><%= @user.employee_tax_code %></td>
                             <% else %>
                                 <td class="text-left">Chưa có thông tin</td>
                             <% end %>
                             
-                            <% if @user.employee.salary? %>
-                                <td class="text-left"><%= format_number(@user.employee_salary) %> VNĐ</td>
-                            <% else %>
-                                <td class="text-left">Chưa có thông tin</td>
+                            <% if can? :view_salary, nil %>
+                                <% if @user.employee.salary? %>
+                                    <td class="text-left"><%= format_number(@user.employee_salary) %> VNĐ</td>
+                                <% else %>
+                                    <td class="text-left">Chưa có thông tin</td>
+                                <% end %>
                             <% end %>
                             
                             <% if @user.employee.birthdate.present? %>

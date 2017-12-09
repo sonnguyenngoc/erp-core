@@ -81,28 +81,56 @@ module Erp
           user: {
             users: {
               index: {
+                value: 'roommate',
+                options: [
+                  {value: 'roommate', text: 'Cùng phòng'},
+                  {value: 'all', text: 'Tất cả'},
+                ],
+              },
+              create: {
                 value: 'yes',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              new: {
-                value: 'yes',
+              edit_mine: {
+                value: 'no',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              edit: {
-                value: 'yes',
+              edit_other_dept: {
+                value: 'no',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              delete: {
-                value: 'yes',
+              edit_own_dept: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete_mine: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete_other_dept: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete_own_dept: {
+                value: 'no',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
@@ -120,31 +148,13 @@ module Erp
           department: {
             departments: {
               index: {
-                value: 'roommate',
-                options: [
-                  {value: 'roommate', text: 'Cùng phòng'},
-                  {value: 'all', text: 'Tất cả'},
-                ],
-              },
-              edit: {
-                value: 'roommate',
-                options: [
-                  {value: 'roommate', text: 'Cùng phòng'},
-                  {value: 'all', text: 'Tất cả'},
-                ],
-              },
-            }
-          },
-          user_group: {
-            user_groups: {
-              index: {
                 value: 'no',
                 options: [
                   {value: 'yes', text: 'Có'},
                   {value: 'no', text: 'Không'},
                 ],
               },
-              new: {
+              create: {
                 value: 'no',
                 options: [
                   {value: 'yes', text: 'Có'},
@@ -165,7 +175,32 @@ module Erp
                   {value: 'no', text: 'Không'},
                 ],
               },
-            }
+            },
+          },
+          user_group: {
+            user_groups: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
           },
         },                
       }

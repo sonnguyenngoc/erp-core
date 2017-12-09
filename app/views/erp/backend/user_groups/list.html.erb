@@ -5,26 +5,17 @@
                 <%= erp_datalist_check_all %>
             </th>
             <% if get_columns(params).include?("name") %>
-                <th>
-                    <%= t('.name') %>
-                </th>
+                <th><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("description") %>
-                <th>
-                    <%= t('.description') %>
-                </th>
-            <% end %>
-            <% if get_columns(params).include?("status") %>
-                <th>
-                    <%= t('status') %>
-                </th>
+                <th><%= t('.description') %></th>
             <% end %>
             <% if get_columns(params).include?("created_at") %>
-                <th>
-                    <%= t('created_at') %>
-                </th>
+                <th><%= t('created_at') %></th>
             <% end %>
-            <th width="7%"><%= t('actions') %></th>
+            <% if (can? :edit, Erp::UserGroup) %>
+                <th width="7%"><%= t('actions') %></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>
@@ -34,29 +25,30 @@
                     <%= erp_datalist_check_row(id: user_group.id) %>
                 </td>
                 <% if get_columns(params).include?("name") %>
-                    <td><%= link_to user_group.name, erp.edit_backend_user_group_path(user_group) %></td>
+                    <% if (can? :edit, Erp::UserGroup) %>
+                        <td><%= link_to user_group.name, erp.edit_backend_user_group_path(user_group) %></td>
+                    <% else %>
+                        <td><%= user_group.name %></td>
+                    <% end %>
                 <% end %>
                 <% if get_columns(params).include?("description") %>
                     <td><%= user_group.description %></td>
                 <% end %>
-                <% if get_columns(params).include?("status") %>
-                <td>
-                    
-                </td>
-                <% end %>
                 <% if get_columns(params).include?("created_at") %>
-                    <td class="center"><%= user_group.created_at.strftime("%d/%m/%Y") %></td>
+                    <td><%= user_group.created_at.strftime("%d/%m/%Y") %></td>
                 <% end %>
+                <% if (can? :edit, user_group) %>
                 <td>
-                    <%= erp_datalist_row_actions(
-                        [
-                            {
+                    <%
+                        actions = []
+                        actions << {
                                 text: '<i class="fa fa-edit"></i> '+t('edit'),
                                 href: erp.edit_backend_user_group_path(user_group)
-                            }
-                        ]
-                    ) %>
+                            } if can? :edit, user_group
+                    %>                            
+                    <%= erp_datalist_row_actions(actions) %>
                 </td>
+                <% end %>
             </tr>
         <% end %>
     </tbody>

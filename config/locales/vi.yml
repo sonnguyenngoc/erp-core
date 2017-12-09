@@ -37,20 +37,26 @@ vi:
         controller_users: "Quyền cho nhân viên"
         users:
           index: "Xem danh sách"
-          new: "Thêm mới"
-          edit: "Cập nhật"
-          delete: "Xóa"
+          create: "Thêm mới"
+          edit_mine: "Cập nhật cá nhân"
+          edit_other_dept: "Cập nhật phòng khác"
+          edit_own_dept: "Cập nhật cùng phòng"
+          delete_mine: "Xóa cá nhân"
+          delete_other_dept: "Xóa phòng khác"
+          delete_own_dept: "Xóa cùng phòng"
           view_salary: "Xem lương"
-      department:
-        controller_departments: "Quyền cho phòng ban"
-        departments:
-          index: "Xem danh sách"
-          edit: "Cập nhật"
       user_group:
         controller_user_groups: "Quyền cho danh sách phân quyền"
         user_groups:
           index: "Xem danh sách"
-          new: "Thêm mới"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+      department:
+        controller_departments: "Quyền cho danh sách phòng ban"
+        departments:
+          index: "Xem danh sách"
+          create: "Thêm mới"
           edit: "Cập nhật"
           delete: "Xóa"
   layouts:

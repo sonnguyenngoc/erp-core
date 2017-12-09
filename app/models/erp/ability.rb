@@ -35,6 +35,50 @@ module Erp
         method = eg + '_ability'
         send(method, user) if self.respond_to?(method.to_sym)
       end
+      
+      # Can Erp::User
+      can :create, Erp::User if user.get_permission(:user_management, :user, :users, :create) == 'yes'
+      can :view_salary, :all if user.get_permission(:user_management, :user, :users, :view_salary) == 'yes'      
+      can :edit, Erp::User do |u|
+        can = false
+        if user.get_permission(:user_management, :user, :users, :edit_mine) == 'yes' and u.id == user.id
+          can = true
+        end
+        if user.get_permission(:user_management, :user, :users, :edit_other_dept) == 'yes' and u.department_id != user.department_id and u.id != user.id
+          can = true
+        end
+        if user.get_permission(:user_management, :user, :users, :edit_own_dept) == 'yes'  and u.department_id == user.department_id and u.id != user.id
+          can = true
+        end
+        
+        can
+      end
+      
+      can :delete, Erp::User do |u|
+        can = false
+        if user.get_permission(:user_management, :user, :users, :delete_mine) == 'yes' and u.id == user.id
+          can = true
+        end
+        if user.get_permission(:user_management, :user, :users, :delete_other_dept) == 'yes' and u.department_id != user.department_id and u.id != user.id
+          can = true
+        end
+        if user.get_permission(:user_management, :user, :users, :delete_own_dept) == 'yes'  and u.department_id == user.department_id and u.id != user.id
+          can = true
+        end
+        
+        can
+      end
+      
+      # Can Erp::UserGroup
+      can :index, Erp::UserGroup if user.get_permission(:user_management, :user_group, :user_groups, :index) == 'yes'
+      can :create, Erp::UserGroup if user.get_permission(:user_management, :user_group, :user_groups, :create) == 'yes'
+      can :edit, Erp::UserGroup if user.get_permission(:user_management, :user_group, :user_groups, :edit) == 'yes'
+      
+      # Can Erp::Department
+      can :index, Erp::Department if user.get_permission(:user_management, :department, :departments, :index) == 'yes'
+      can :create, Erp::Department if user.get_permission(:user_management, :department, :departments, :create) == 'yes'
+      can :edit, Erp::Department if user.get_permission(:user_management, :department, :departments, :edit) == 'yes'
+      can :delete, Erp::Department if user.get_permission(:user_management, :department, :departments, :delete) == 'yes'
     end
   end
 end

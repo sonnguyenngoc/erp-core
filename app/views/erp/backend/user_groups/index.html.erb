@@ -6,12 +6,14 @@
     <i class="fa fa-toggle-on"></i> <%= t('.user_groups') %>
 <% end %>
 
-<% content_for :page_toolbar do %>
-    <%= erp_component('button/create', {
-        text: t('.create'),
-        href: erp.new_backend_user_group_path,
-        class: 'btn-noborder'
-    }) %>
+<% if can? :create, Erp::UserGroup %>
+    <% content_for :page_toolbar do %>
+        <%= erp_component('button/create', {
+            text: t('.create'),
+            href: erp.new_backend_user_group_path,
+            class: 'btn-noborder'
+        }) %>
+    <% end %>
 <% end %>
 
 <%= erp_datalist(
@@ -32,10 +34,7 @@
             text: t('.description'), name: 'description', value: true, checked: true
         },
         {
-            text: t('status'), name: 'status', value: true, checked: true
-        },
-        {
-            text: t('created_at'), name: 'created_at', value: true, checked: false
+            text: t('created_at'), name: 'created_at', value: true, checked: true
         }
     ]
 ) %>

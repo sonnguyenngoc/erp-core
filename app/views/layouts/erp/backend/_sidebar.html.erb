@@ -46,6 +46,7 @@
                                 <% end %>
                             </a>
                         </li>
+                        <% if (can? :index, Erp::Department) %>
                         <li class="nav-item <%= "active" if ["erp/backend/departments"].include?(params[:controller]) %>">
                             <a href="<%= erp.backend_departments_path %>" class="nav-link ">
                                 <span class="title"><%= t('.departments') %></span>
@@ -54,6 +55,8 @@
                                 <% end %>
                             </a>
                         </li>
+                        <% end %>
+                        <% if (can? :index, Erp::UserGroup) %>
                         <li class="nav-item <%= "active" if ["erp/backend/user_groups"].include?(params[:controller]) %>">
                             <a href="<%= erp.backend_user_groups_path %>" class="nav-link ">
                                 <span class="title"><%= t('.user_groups') %></span>
@@ -62,6 +65,7 @@
                                 <% end %>
                             </a>
                         </li>
+                        <% end %>
                     </ul>
                 </li>
             </ul>

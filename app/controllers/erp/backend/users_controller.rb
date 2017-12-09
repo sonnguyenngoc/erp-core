@@ -14,7 +14,11 @@ module Erp
 
       # POST /users/list
       def list
-        @users = User.search(params).paginate(:page => params[:page], :per_page => 20)
+        @users = User.search(params).paginate(:page => params[:page], :per_page => 10)
+        
+        if current_user.get_permission(:user_management, :user, :users, :index) != "all"
+          @users = @users.where(department_id: current_user.department_id)
+        end
 
         render layout: nil
       end
@@ -22,15 +26,19 @@ module Erp
       # GET /users/new
       def new
         @user = User.new
+        authorize! :create, @user
       end
 
       # GET /users/1/edit
       def edit
+        authorize! :edit, @user
       end
 
       # POST /users
       def create
         @user = User.new(user_params)
+        authorize! :create, @user
+        
         @user.creator = current_user
         @user.permissions = params.to_unsafe_hash[:permissions].to_json
 
@@ -51,6 +59,7 @@ module Erp
 
       # PATCH/PUT /users/1
       def update
+        authorize! :edit, @user
         if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
           params[:user].delete(:password)
           params[:user].delete(:password_confirmation)
@@ -77,6 +86,8 @@ module Erp
       # DELETE /users/1
       def destroy
         @user.destroy
+        
+        authorize! :delete, @user
 
         respond_to do |format|
           format.html { redirect_to erp.backend_users_path, notice: t('.success') }
@@ -88,21 +99,7 @@ module Erp
           }
         end
       end
-
-      # DELETE /users/delete_all?ids=1,2,3
-      def delete_all
-        @users.destroy_all
-
-        respond_to do |format|
-          format.json {
-            render json: {
-              'message': t('.success'),
-              'type': 'success'
-            }
-          }
-        end
-      end
-
+      
       def dataselect
         respond_to do |format|
           format.json {

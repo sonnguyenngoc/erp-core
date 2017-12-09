@@ -5,28 +5,33 @@ module Erp
   
       # GET /departments
       def index
+        authorize! :index, Erp::Department
       end
   
       # POST /departments/list
       def list
-        @departments = Department.search(params).paginate(:page => params[:page], :per_page => 10)
+        authorize! :index, Erp::Department
         
+        @departments = Department.search(params).paginate(:page => params[:page], :per_page => 10)        
         render layout: nil
       end
   
       # GET /departments/new
       def new
         @department = Department.new
+        authorize! :create, @department
       end
   
       # GET /departments/1/edit
       def edit
+        authorize! :edit, @department
       end
   
       # POST /departments
       def create
         @department = Department.new(department_params)
-  
+        authorize! :create, @department
+        
         if @department.save
           if request.xhr?
             render json: {
@@ -44,6 +49,7 @@ module Erp
   
       # PATCH/PUT /departments/1
       def update
+        authorize! :edit, @department
         if @department.update(department_params)
           if request.xhr?
             render json: {
@@ -61,6 +67,7 @@ module Erp
   
       # DELETE /departments/1
       def destroy
+        authorize! :delete, @department
         @department.destroy
 
         respond_to do |format|

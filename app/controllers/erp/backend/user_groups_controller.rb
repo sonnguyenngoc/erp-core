@@ -5,28 +5,33 @@ module Erp
 
       # GET /user_groups
       def index
+        authorize! :index, Erp::UserGroup
       end
 
       # POST /user_groups/list
       def list
+        authorize! :index, Erp::UserGroup
+        
         @user_groups = UserGroup.search(params).paginate(:page => params[:page], :per_page => 10)
-
         render layout: nil
       end
 
       # GET /user_groups/new
       def new
         @user_group = UserGroup.new
+        authorize! :create, @user_group
       end
 
       # GET /user_groups/1/edit
       def edit
+        authorize! :edit, @user_group
       end
 
       # POST /user_groups
       def create
         @user_group = UserGroup.new(user_group_params)
-
+        authorize! :create, @user_group
+      sddsds
         if @user_group.save
           @user_group.update_permissions(params.to_unsafe_hash[:permissions])
 
@@ -46,6 +51,8 @@ module Erp
 
       # PATCH/PUT /user_groups/1
       def update
+        authorize! :edit, @user_group
+        
         if @user_group.update(user_group_params)
           @user_group.update_permissions(params.to_unsafe_hash[:permissions])
           

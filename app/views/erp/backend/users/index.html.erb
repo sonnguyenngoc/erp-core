@@ -6,12 +6,14 @@
     <i class="fa fa-users"></i> <%= t('.users') %>
 <% end %>
 
-<% content_for :page_toolbar do %>
-    <%= erp_component('button/create', {
-        text: t('.create'),
-        href: erp.new_backend_user_path,
-        class: 'btn-noborder'
-    }) %>
+<% if can? :create, Erp::User %>
+    <% content_for :page_toolbar do %>
+        <%= erp_component('button/create', {
+            text: t('.create'),
+            href: erp.new_backend_user_path,
+            class: 'btn-noborder'
+        }) %>
+    <% end %>
 <% end %>
 
 <%= erp_datalist(

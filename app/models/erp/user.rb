@@ -53,8 +53,7 @@ module Erp
         keyword = keyword.strip.downcase
         query = query.where('LOWER(name) LIKE ?', "%#{keyword}%")
       end
-
-      query = query.limit(8).map{|user| {value: user.id, text: user.name} }
+      query = query.limit(8).map{|user| {value: user.id, text: "#" + user.employee_code + " - " + user.name} }
     end
 
     def activate
