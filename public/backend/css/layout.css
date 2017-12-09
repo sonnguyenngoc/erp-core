@@ -153,8 +153,8 @@ a:hover {
     background: #294567;
 }
 .page-header.navbar .page-logo .logo-default {
-    margin: 8px 14px 0 0;
-    height: 30px;
+    margin: 2px 14px 0px 60px;
+    height: 45px;
 }
 .dropdown-menu {
     border-color: #bbb;
